@@ -1,0 +1,36 @@
+﻿@using VGGLinkedIn.Common.SystemMessages
+
+@{
+    var systemMessages = (List<SystemMessage>)ViewBag.SystemMessages;
+}
+
+@if (ViewBag.SystemMessages != null && systemMessages.Any())
+{
+    <div class="error-messages inner">
+        <div class="container">
+            <div class="col-md-12">
+                @foreach (var message in systemMessages)
+                {
+                    var messageClass = string.Empty;
+                    switch (message.Type)
+                    {
+                        case SystemMessageType.Information:
+                            messageClass = "alert alert-info";
+                            break;
+                        case SystemMessageType.Success:
+                            messageClass = "alert alert-success";
+                            break;
+                        case SystemMessageType.Warning:
+                            messageClass = "alert alert-warning";
+                            break;
+                        case SystemMessageType.Error:
+                            messageClass = "alert alert-danger";
+                            break;
+                    }
+
+                    @:<div class="@messageClass"><strong>@Html.Raw(message.Content)</strong></div>
+                }
+            </div>
+        </div>
+    </div>
+}

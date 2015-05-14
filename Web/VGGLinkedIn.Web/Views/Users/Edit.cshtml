@@ -1,0 +1,53 @@
+﻿@model VGGLinkedIn.Web.InputModels.EditUserInputModel
+           
+@using (Html.BeginForm("Edit", "Users"))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Main Information</legend>
+        <div class="form-group">
+            @Html.LabelFor(x => x.FullName)
+                @Html.EditorFor(x => x.FullName)
+                @Html.ValidationMessageFor(x => x.FullName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.AvatarUrl)
+                @Html.EditorFor(x => x.AvatarUrl)
+                @Html.ValidationMessageFor(x => x.AvatarUrl)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Summary)
+                @Html.EditorFor(x => x.Summary)
+                @Html.ValidationMessageFor(x => x.Summary)
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Contacts</legend>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ContactInfo.Facebook)
+            @Html.EditorFor(x => x.ContactInfo.Facebook)
+            @Html.ValidationMessageFor(x => x.ContactInfo.Facebook)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ContactInfo.Twitter)
+            @Html.EditorFor(x => x.ContactInfo.Twitter)
+            @Html.ValidationMessageFor(x => x.ContactInfo.Twitter)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ContactInfo.Phone)
+            @Html.EditorFor(x => x.ContactInfo.Phone)
+            @Html.ValidationMessageFor(x => x.ContactInfo.Phone)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ContactInfo.Website)
+            @Html.EditorFor(x => x.ContactInfo.Website)
+            @Html.ValidationMessageFor(x => x.ContactInfo.Website)
+        </div>
+    </fieldset>
+
+    <input type="submit" name="name" value="Edit Profile" />
+}

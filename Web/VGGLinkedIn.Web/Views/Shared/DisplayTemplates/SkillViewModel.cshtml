@@ -1,0 +1,14 @@
+﻿@model VGGLinkedIn.Web.ViewModels.Users.SkillViewModel
+
+@Model.Name - <span id="skill-@Model.Id">@Model.Endorcements (@Html.DisplayFor(x => x.Endorcers))</span> 
+
+@using (Ajax.BeginForm("EndorseUserForSkill", "Users", new { id = Model.Id }, new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = string.Format("skill-{0}", Model.Id)
+}))
+{
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <input type="submit" value="+" />
+}

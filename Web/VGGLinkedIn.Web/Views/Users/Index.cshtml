@@ -1,0 +1,31 @@
+﻿@model VGGLinkedIn.Web.ViewModels.Users.UserProfileViewModel
+
+<h2>@Html.DisplayFor(x => x.UserName)</h2>
+@if (this.User.Identity.Name == Model.UserName)
+{
+    @Html.ActionLink("Edit Profile", "Edit") <br/>
+}
+<strong>@Html.DisplayNameFor(x => x.FullName):</strong> @Html.DisplayFor(x => x.FullName)
+<br />
+<strong>@Html.DisplayNameFor(x => x.Summary):</strong> @Html.DisplayFor(x => x.Summary)
+<h3>Contacts</h3>
+<strong>@Html.DisplayNameFor(x => x.ContactInfo.Facebook):</strong> @Html.DisplayFor(x => x.ContactInfo.Facebook)
+<br />
+<strong>@Html.DisplayNameFor(x => x.ContactInfo.Twitter):</strong> @Html.DisplayFor(x => x.ContactInfo.Twitter)
+<br />
+<strong>@Html.DisplayNameFor(x => x.ContactInfo.Website):</strong> @Html.DisplayFor(x => x.ContactInfo.Website)
+<br />
+<strong>@Html.DisplayNameFor(x => x.ContactInfo.Phone):</strong> @Html.DisplayFor(x => x.ContactInfo.Phone)
+
+<h3>Certifications</h3>
+@Html.DisplayFor(x => x.Certifications)
+
+<h3>Projects</h3>
+@Html.DisplayFor(x => x.Projects)
+
+<h3>Skills</h3>
+@Html.DisplayFor(x => x.Skills)
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

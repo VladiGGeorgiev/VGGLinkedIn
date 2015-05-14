@@ -1,0 +1,17 @@
+﻿@model VGGLinkedIn.Web.ViewModels.Users.CertificationViewModel
+
+<div>
+    @if (string.IsNullOrEmpty(Model.Url))
+    {
+        <strong>@Model.Name</strong>
+    }
+    else
+    {
+        <strong><a href="@Model.Url">@Model.Name</a></strong>
+    }
+
+    <p>@Model.ExpirationDate</p>
+    <p>@Model.TakenDate</p>
+    <p>@Model.LicenseNumber</p>
+</div>
+
